@@ -16,11 +16,11 @@ const connectToMongoDB = async () => {
        await new userSchema(user).save()
        
 
-       /*finding values
+       //finding values
       const result = await userSchema.findOne({
         password: 'Password1!',
       })
-      console.log('Result:', result)*/
+      console.log('Result:', result.username)
 
     } finally {
       mongoose.connection.close()
