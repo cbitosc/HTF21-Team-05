@@ -25,17 +25,17 @@
   <body class="text-center">
     
 <main class="form-signin">
-  <form>
+  <form method="post">
     <br><br><br><br>
-    <img class="my-5" src="\images\logo.png" alt="CBIT logo" style="width: 500px;">
+    <img class="my-5" src="logo.png" alt="CBIT logo" style="width: 500px;">
     <br>
     <h1 class="h4 mb-3 fw-normal"><b>Admin</b></h1>
 
     <div class="form-floating">
-      <input class="w-25 mb-2" type="email" class="form-control" id="floatingInput" placeholder="Username">
+      <input class="w-25 mb-2" type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
     </div>
     <div class="form-floating">
-      <input class="w-25 mb-2" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input class="w-25 mb-2" type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
     </div>
     <br>
     <button class="w-30 p-2 btn btn-lg btn-primary" type="submit">Sign In</button>
