@@ -19,18 +19,22 @@
           font-size: 3.5rem;
         }
       }
-    .button {
+      .button {
+        background-color:rgb(33, 37, 41);
         border: none;
         color: white;
-        padding: 15px 32px;
+        padding: 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
-        background-color: rgb(255, 255, 255);
-    }
+        border-radius: 8px;
+        position: fixed;
+        top:95px;
+        left:30px;
+      }
     </style>
 
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
@@ -42,7 +46,7 @@
   <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
     <div class="col-md-6 px-0">
       <h1 class="display-4"><b>Activities
-        <button style="background-color: #212529; color:rgb(255, 255, 255); padding: 0.1%; font-size: larger;" type="button">+</button></b></h1>
+        <!-- <button style="background-color: #212529; color:rgb(255, 255, 255); padding: 0.1%; font-size: larger;" type="button">+</button></b></h1> -->
       <p class="lead my-3">Hit the '+' button to add an activity.</p>
     </div>
   </div>
@@ -64,7 +68,7 @@
       </div>
     </div>
     <!-- end -->
-    <div class="col-md-6"><br>
+    <div class="col-md-6" id="add-beneath"><br>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <h3 class="mb-0">Toastmasters</h3>
@@ -79,6 +83,14 @@
       </div>
     </div>
   </div>
-
+  <button class="button button3" id = "insert-new" onclick='InsertEvent()'>+</button>
   </body>
+  <script>
+    function InsertEvent(){
+      var Div = document.createElement('div');
+      Div.style.cssText = 'position:fixed;width:45%;height:30%;opacity:0.3;z-index:100;background:#99f3ed;left:400px;border-radius:8px; border-color:#111;border-width:10px';
+    document = document.body.appendChild(Div);
+      
+    }
+  </script>
 </html>
