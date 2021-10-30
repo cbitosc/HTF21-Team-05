@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
   //email: reqString,
   username: reqString,
   password: reqString,
+  registeredEvents: [String]
 })
 
 module.exports = mongoose.model('users', userSchema)
