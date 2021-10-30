@@ -65,7 +65,6 @@ app.post("/signup.html", function(req, res){
       
              //Inserting values
              const user = {
-              //email: 'test@email.com',
                 username: username,
                password: password,
              }

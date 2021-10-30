@@ -82,16 +82,28 @@ await mongo().then(async (mongoose) => {
       password: localStorage.getItem("pStorage"),
       registeredEvents:[],
       }
-
-      await new userSchema(user).save()
+      await userSchema.findOneAndUpdate(
+        {
+          username: localStorage.getItem("uStorage"),
+        },
+        {
+          $push: {
+            registeredEvents: [value],
+          },
+        }
+      )
+     await new userSchema(user).save()
+      //console.log(value);
+      //console.log()
+       
     
     const result = await userSchema.findOne({
-      password: password,
+    password: localStorage.getItem("pStorage"),
     })
-    console.log('Result:', result)
+    //console.log('Result:', result)
     
     const findEvents = await userSchema.findOne({
-      username: username,
+     username: localStorage.getItem("uStorage"),
     })
   
     console.log('Result:', findEvents.registeredEvents )
