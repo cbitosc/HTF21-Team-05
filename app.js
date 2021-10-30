@@ -12,7 +12,7 @@ app.get("/", function(req, res){
     res.sendFile(__dirname + "/mainpage/index-main.html");
 });
 
-app.get("/studentSignin", function(req, res){
+app.get("/studentSignin.html", function(req, res){
     res.sendFile(__dirname + "/mainpage/studentSignin.html");
 });
 
@@ -37,9 +37,9 @@ app.post("/clubSignin.html", function(req, res){
 });
 
 
-app.get("/clubSignin.html", function(req, res){
-    res.sendFile(__dirname + "/mainpage/clubSignin.html");
-});
+// app.get("/clubSignin.html", function(req, res){
+//     res.sendFile(__dirname + "/mainpage/clubSignin.html");
+// });
 
 app.get("/clubHome.html", function(req, res){
     res.sendFile(__dirname + "/mainpage/clubHome.html");
