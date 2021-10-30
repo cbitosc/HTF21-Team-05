@@ -137,10 +137,8 @@ app.post("/signup-Club.html", function(req, res){
         await mongo().then(async (mongoose) => {
           try {
             console.log('Connected to mongodb!')
-      
-             //Inserting values
+
              const user = {
-              //email: 'test@email.com',
                 username: username,
                password: password,
              }
@@ -162,34 +160,6 @@ app.get("/ClubHome.html", function(req, res){
 });
 
 
-
-
-
-
-// Club code ends here
-
-
-
-
-// app.get("/clubSignin.html", function(req, res){
-//     res.sendFile(__dirname + "/mainpage/clubSignin.html");
-// });
-
-// app.post("/clubSignin.html", function(req, res){
-//     var username = req.body.username;
-//     var password = req.body.password;
-//     console.log(username, password);
-//     res.sendFile(__dirname + "/mainpage/clubHome.html");
-// });
-
-
-// // app.get("/clubSignin.html", function(req, res){
-// //     res.sendFile(__dirname + "/mainpage/clubSignin.html");
-// // });
-
-// app.get("/clubHome.html", function(req, res){
-//     res.sendFile(__dirname + "/mainpage/clubHome.html");
-// });
 
 app.listen(3000, function() {
     console.log('Server started on port 3000');

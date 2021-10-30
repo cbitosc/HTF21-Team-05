@@ -35,14 +35,13 @@
   </div>
 
   <div class="row mb-2">
-    <!-- start -->
     <div class="col-md-6"><br>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static" id = "changeColor">
           <h3 class="mb-0">COSC</h3>
           <div class="mb-1 text-muted">29th October 2021</div>
           <p class="card-text mb-auto">Hacktober '21 Fest Hackathon.</p>
-          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="Clicked()">Register</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" value="Hacktober '21 Fest" onclick="Clicked(this.value)">Register</button>
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><img src="hacktober.png" width="250"></svg>
@@ -50,14 +49,13 @@
         </div>
       </div>
     </div>
-    <!-- end -->
     <div class="col-md-6"><br>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static" id = "changeColor2">
           <h3 class="mb-0">Toastmasters</h3>
           <div class="mb-1 text-muted">31st October 2021</div>
           <p class="mb-auto">Unscripted.</p>
-          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="Clicked()">Register</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" value="ToastMasters - Unscripted" onclick="Clicked(this.value)">Register</button>
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><img src="unscripted.png" width="200"></svg>
@@ -66,15 +64,45 @@
       </div>
     </div>
   </div>
-  <!-- <script>
-    function Clicked() {
-      console.log(document.getElementById("changeColor").style.backgroundColor);
-      if(document.getElementById("changeColor").style.backgroundColor != 'rgb(146,242,157)')
-        document.getElementById("changeColor").style.backgroundColor = '#92f29d';
-      else{
-        document.getElementById("changeColor").style.backgroundColor = '#f2f2f2';
-      }  
-    }
-  </script> -->
   </body>
+  <script>
+    
+function Clicked(value) {
+  alert("You have registered for " + value);
+
+const mongo = require('./mongo')
+const userSchema = require('./schemas/user-schema')
+
+const connectToMongoDB = async () => {
+await mongo().then(async (mongoose) => {
+  try {
+    console.log('Connected to mongodb!')
+      const user = {
+      username: localStorage.getItem("uStorage") ,
+      password: localStorage.getItem("pStorage"),
+      registeredEvents:[],
+      }
+
+      await new userSchema(user).save()
+    
+    const result = await userSchema.findOne({
+      password: password,
+    })
+    console.log('Result:', result)
+    
+    const findEvents = await userSchema.findOne({
+      username: username,
+    })
+  
+    console.log('Result:', findEvents.registeredEvents )
+
+ } finally {
+    mongoose.connection.close()
+  }
+})
+}
+
+connectToMongoDB()
+}
+  </script>
 </html>
